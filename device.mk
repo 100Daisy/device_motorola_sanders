@@ -120,13 +120,13 @@ PRODUCT_PACKAGES += \
     opencamera
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/camera/imx219_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/imx219_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/mot_imx258_bear_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/mot_imx258_bear_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/mot_imx258_mono_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/mot_imx258_mono_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/mot_s5k3l8_bear_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/mot_s5k3l8_bear_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/mot_s5k3l8_mono_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/mot_s5k3l8_mono_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/bokeh_preview.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/camera/bokeh_preview.cfg \
+    $(LOCAL_PATH)/configs/camera/gc2375_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/gc2375_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/gc2375_helitech_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/gc2375_helitech_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov13855_f13855ab_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/ov13855_f13855ab_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k4h7_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k4h7_chromatix.xml \
     $(LOCAL_PATH)/configs/camera/msm8953_mot_deen_camera.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/msm8953_mot_deen_camera.xml \
-    $(LOCAL_PATH)/configs/camera/s5k4h8_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k4h8_chromatix.xml
+    $(LOCAL_PATH)/configs/camera/ov13855_helitech_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/ov13855_helitech_chromatix.xml
 
 # Dex
 PRODUCT_DEXPREOPT_SPEED_APPS += \
@@ -223,7 +223,7 @@ PRODUCT_PACKAGES += \
 
 # IDC
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/idc/uinput-fpc.idc:system/usr/idc/uinput-fpc.idc
+    $(LOCAL_PATH)/idc/uinput-egis.idc:system/usr/idc/uinput-egis.idc
 
 # IMS & Telephony
 PRODUCT_PACKAGES += \
@@ -252,7 +252,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/synaptics_dsx.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/synaptics_dsx.kl \
     $(LOCAL_PATH)/keylayout/synaptics_dsxv26.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/synaptics_dsxv26.kl \
     $(LOCAL_PATH)/keylayout/synaptics_rmi4_i2c.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/synaptics_rmi4_i2c.kl \
-    $(LOCAL_PATH)/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl
+    $(LOCAL_PATH)/keylayout/uinput-egis.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-egis.kl
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
@@ -417,7 +417,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-deen.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf \
-    $(LOCAL_PATH)/configs/thermal-engine-deen-INDIA.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-INDIA.conf
 
 # USB HAL
 PRODUCT_PACKAGES += \
