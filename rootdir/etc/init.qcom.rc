@@ -26,7 +26,7 @@
 #
 
 import /vendor/etc/init/hw/init.mmi.rc
-import /vendor/etc/init/hw/init.sanders.rc
+import /vendor/etc/init/hw/init.deen.rc
 import /vendor/etc/init/hw/init.safailnet.rc
 
 on early-init
