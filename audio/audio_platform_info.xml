@@ -23,7 +23,6 @@
 	<device name="SND_DEVICE_OUT_VOLTE_NB_TX" acdb_id="245" />
 
 <!-- Input devices -->
-	<device name="SND_DEVICE_IN_CAPTURE_VI_FEEDBACK" acdb_id="0"/>
 	<device name="SND_DEVICE_IN_HANDSET_MIC_AEC" acdb_id="4"/>
 	<device name="SND_DEVICE_IN_HANDSET_MIC_AEC_NS" acdb_id="4"/>
 	<device name="SND_DEVICE_IN_HANDSET_MIC_NS" acdb_id="4"/>
@@ -32,14 +31,13 @@
 	<device name="SND_DEVICE_IN_SPEAKER_MIC_AEC_NS" acdb_id="114" />
 	<device name="SND_DEVICE_IN_SPEAKER_MIC_NS" acdb_id="114" />
 	<device name="SND_DEVICE_IN_VOICE_REC_DMIC_FLUENCE" acdb_id="35"/>
-	<device name="SND_DEVICE_IN_VOICE_DMIC_TMUS" acdb_id="89"/>
+	<device name="SND_DEVICE_IN_VOICE_DMIC_TMUS" acdb_id="41"/>
 	<device name="SND_DEVICE_IN_VOICE_SPEAKER_MIC" acdb_id="42" />
 	<device name="SND_DEVICE_IN_HEADSET_MIC_AEC" acdb_id="47"/>
 	<device name="SND_DEVICE_IN_VOICE_REC_MIC_NS" acdb_id="62"/>
 	<device name="SND_DEVICE_IN_HANDSET_DMIC_AEC" acdb_id="111"/>
 	<device name="SND_DEVICE_IN_HANDSET_DMIC_NS" acdb_id="111"/>
 	<device name="SND_DEVICE_IN_VOICE_REC_HEADSET_MIC" acdb_id="131"/>
-	<device name="SND_DEVICE_IN_CAMCORDER_BF" acdb_id="34"/>
 	<device name="SND_DEVICE_IN_CAPTURE_FM" acdb_id="90"/>
 </acdb_ids>
 
@@ -68,7 +66,8 @@
 	<usecase name="USECASE_VOLTE_CALL" type="out" id="15"/>
 	<usecase name="USECASE_VOWLAN_CALL" type="in" id="16"/>
 	<usecase name="USECASE_VOWLAN_CALL" type="out" id="16"/>
-	<usecase name="USECASE_AUDIO_DSM_FEEDBACK" type="in" id="60" />
+	<usecase name="USECASE_AUDIO_SPKR_CALIB_TX" type="in" id="26" />
+	<usecase name="USECASE_INCALL_MUSIC_UPLINK" type="out" id="14" />
 </pcm_ids>
 
 <config_params>
@@ -76,3 +75,4 @@
 </config_params>
 
 </audio_platform_info>
+

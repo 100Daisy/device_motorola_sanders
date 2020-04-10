@@ -97,3 +97,4 @@
         <Resource opcode="0x42814000" value="0x1E4F"/>  <!-- GPUBW freq 775 Mhz -->
     </Hint>
 </Powerhint>
+
