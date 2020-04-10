@@ -83,6 +83,26 @@ TARGET_KERNEL_SOURCE := kernel/motorola/msm8953
 #TARGET_KERNEL_CLANG_VERSION := 9.0.4
 TARGET_USE_SDCLANG := true
 
+# A/B Support
+AB_OTA_UPDATER := true
+AB_OTA_PARTITIONS := \
+  boot \
+  system \
+  vendor
+TARGET_NO_RECOVERY := true
+BOARD_USES_RECOVERY_AS_BOOT := true
+PRODUCT_PACKAGES += \
+  update_engine \
+  update_verifier
+
+# A/B OTA
+PRODUCT_PACKAGES += otapreopt_script
+AB_OTA_POSTINSTALL_CONFIG += \
+  RUN_POSTINSTALL_system=true \
+  POSTINSTALL_PATH_system=system/bin/otapreopt_script \
+  FILESYSTEM_TYPE_system=ext4 \
+  POSTINSTALL_OPTIONAL_system=true
+
 # Audio
 BOARD_SUPPORTS_SOUND_TRIGGER_HAL := true
 BOARD_USES_ALSA_AUDIO := true
