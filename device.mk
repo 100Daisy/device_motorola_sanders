@@ -17,7 +17,7 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Vendor properties
--include device/motorola/sanders/vendor_prop.mk
+-include device/motorola/deen/vendor_prop.mk
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -125,7 +125,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/camera/mot_imx258_mono_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/mot_imx258_mono_chromatix.xml \
     $(LOCAL_PATH)/configs/camera/mot_s5k3l8_bear_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/mot_s5k3l8_bear_chromatix.xml \
     $(LOCAL_PATH)/configs/camera/mot_s5k3l8_mono_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/mot_s5k3l8_mono_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/msm8953_mot_sanders_camera.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/msm8953_mot_sanders_camera.xml \
+    $(LOCAL_PATH)/configs/camera/msm8953_mot_deen_camera.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/msm8953_mot_deen_camera.xml \
     $(LOCAL_PATH)/configs/camera/s5k4h8_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k4h8_chromatix.xml
 
 # Dex
@@ -262,7 +262,7 @@ PRODUCT_PACKAGES += \
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl \
-    android.hardware.light@2.0-service.sanders
+    android.hardware.light@2.0-service.deen
 
 # Media
 PRODUCT_PACKAGES += \
@@ -360,7 +360,7 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.qcom.sensors.sh \
     init.safailnet.rc \
-    init.sanders.rc \
+    init.deen.rc \
 
 PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/rootdir/etc/ueventd.qcom.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc
@@ -416,8 +416,8 @@ PRODUCT_PACKAGES += \
     thermal.msm8953
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/thermal-engine-sanders.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf \
-    $(LOCAL_PATH)/configs/thermal-engine-sanders-INDIA.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-INDIA.conf
+    $(LOCAL_PATH)/configs/thermal-engine-deen.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf \
+    $(LOCAL_PATH)/configs/thermal-engine-deen-INDIA.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-INDIA.conf
 
 # USB HAL
 PRODUCT_PACKAGES += \
@@ -425,7 +425,7 @@ PRODUCT_PACKAGES += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service.sanders
+    android.hardware.usb@1.0-service.deen
 
 PRODUCT_COPY_FILES += \
     prebuilts/vndk/v28/arm64/arch-arm64-armv8-a/shared/vndk-sp/libbase.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libbase-v28.so

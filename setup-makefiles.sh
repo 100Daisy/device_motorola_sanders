@@ -18,7 +18,7 @@
 set -e
 
 # Required!
-DEVICE=sanders
+DEVICE=deen
 VENDOR=motorola
 
 # Load extractutils and do some sanity checks

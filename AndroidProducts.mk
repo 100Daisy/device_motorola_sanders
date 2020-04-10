@@ -14,7 +14,8 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-	$(LOCAL_DIR)/aosp_sanders.mk
+	$(LOCAL_DIR)/aosp_deen.mk
 
 COMMON_LUNCH_CHOICES := \
-	aosp_sanders-userdebug
+	aosp_deen-userdebug
+        aosp_deen-eng

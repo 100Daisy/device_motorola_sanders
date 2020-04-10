@@ -17,13 +17,13 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n_mr1.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk)
 
-# Inherit from sanders device
-$(call inherit-product, device/motorola/sanders/device.mk)
+# Inherit from deen device
+$(call inherit-product, device/motorola/deen/device.mk)
 
 # For Specific
-$(call inherit-product, vendor/motorola/sanders/sanders-vendor.mk)
+$(call inherit-product, vendor/motorola/deen/deen-vendor.mk)
 
 # Inherit some common Evolution-X stuff.
 $(call inherit-product, vendor/aosp/config/common_full_phone.mk)
@@ -33,19 +33,19 @@ TARGET_BOOT_ANIMATION_RES_EVO := true
 TARGET_PIXEL_CHARGE_ANIM := true
 
 # Boot animation
-TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_BOOT_ANIMATION_RES := 720
 
-## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := sanders
-PRODUCT_NAME := aosp_sanders
+# Device identifier. This must come after all inclusions
+PRODUCT_DEVICE := deen
+PRODUCT_NAME := aosp_deen
 PRODUCT_BRAND := motorola
 PRODUCT_MANUFACTURER := motorola
 
 PRODUCT_MODEL := Moto G (5S) Plus
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME="sanders" \
-    TARGET_DEVICE="sanders" \
+    PRODUCT_NAME="deen" \
+    TARGET_DEVICE="deen" \
     PRIVATE_BUILD_DESC="sanders-user 8.1.0 OPS28.65-36 9fea release-keys"
 
 # FINGERPRINT

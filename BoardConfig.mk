@@ -14,9 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
--include vendor/motorola/sanders/BoardConfigVendor.mk
+-include vendor/motorola/deen/BoardConfigVendor.mk
 
-DEVICE_PATH := device/motorola/sanders
+DEVICE_PATH := device/motorola/deen
 
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
@@ -56,7 +56,7 @@ TARGET_2ND_CPU_VARIANT := cortex-a53
 TARGET_USES_64_BIT_BINDER := true
 
 # Asserts
-TARGET_OTA_ASSERT_DEVICE := sanders,sanders_retail
+TARGET_OTA_ASSERT_DEVICE := deen,deen_retail
 
 # GPS
 TARGET_NO_RPC := true
@@ -75,7 +75,7 @@ BOARD_DTBTOOL_ARGS := --force-v3
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_CONFIG := sanders_defconfig
+TARGET_KERNEL_CONFIG := deen_defconfig
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8953
 #TARGET_KERNEL_CLANG_COMPILE := true
 #TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-

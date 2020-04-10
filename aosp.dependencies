@@ -1,11 +1,11 @@
 [
   {
-    "repository": "Evolution-X-Devices/vendor_motorola_sanders",
-    "target_path": "vendor/motorola/sanders",
+    "repository": "Evolution-X-Devices/vendor_motorola_deen",
+    "target_path": "vendor/motorola/deen",
     "branch": "ten"
   },
   {
-    "repository": "Evolution-X-Devices/kernel_motorola_sanders",
+    "repository": "Evolution-X-Devices/kernel_motorola_deen",
     "target_path": "kernel/motorola/msm8953",
     "branch": "ten"
   },
