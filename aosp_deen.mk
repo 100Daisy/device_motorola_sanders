@@ -23,7 +23,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk
 $(call inherit-product, device/motorola/deen/device.mk)
 
 # For Specific
-$(call inherit-product, vendor/motorola/deen/deen-vendor.mk)
+$(call inherit-product, vendor/motorola/deen_sprout/deen_sprout-vendor.mk)
 
 # Inherit some common Evolution-X stuff.
 $(call inherit-product, vendor/aosp/config/common_full_phone.mk)

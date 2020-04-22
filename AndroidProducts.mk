@@ -17,5 +17,5 @@ PRODUCT_MAKEFILES := \
 	$(LOCAL_DIR)/aosp_deen.mk
 
 COMMON_LUNCH_CHOICES := \
-	aosp_deen-userdebug
+	aosp_deen-userdebug \
         aosp_deen-eng

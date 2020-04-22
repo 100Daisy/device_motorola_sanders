@@ -64,13 +64,13 @@ USE_DEVICE_SPECIFIC_GPS := true
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
 
 # Kernel
-#TARGET_COMPILE_WITH_MSM_KERNEL := true
+TARGET_COMPILE_WITH_MSM_KERNEL := true
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci firmware_class.path=/vendor/firmware_mnt/image loop.max_part=7
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive androidboot.veritymode=disabled
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+BOARD_KERNEL_IMAGE_NAME := Image.gz
 BOARD_KERNEL_PAGESIZE := 2048
-#BOARD_KERNEL_SEPARATED_DT := true
+BOARD_KERNEL_SEPARATED_DT := true
 BOARD_DTBTOOL_ARGS := --force-v3
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 TARGET_KERNEL_ARCH := arm64
@@ -81,14 +81,24 @@ TARGET_KERNEL_SOURCE := kernel/motorola/msm8953
 #TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 #TARGET_KERNEL_CLANG_PATH := $(PWD)/prebuilts/clang/host/$(HOST_OS)-x86/clang-r353983d/bin
 #TARGET_KERNEL_CLANG_VERSION := 9.0.4
-#TARGET_USE_SDCLANG := true
-#BOARD_KERNEL_LZ4C_DT := true
-LZMA_RAMDISK_TARGETS := recovery
-NEED_KERNEL_MODULE_SYSTEM := true
+TARGET_USE_SDCLANG := true
 
-# A/B Support
-TARGET_NO_RECOVERY := true
-BOARD_USES_RECOVERY_AS_BOOT := true
+# A/B
+AB_OTA_UPDATER := true
+
+AB_OTA_PARTITIONS += \
+    boot \
+    system \
+    vendor
+
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_system=true \
+    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
+    FILESYSTEM_TYPE_system=ext4 \
+    POSTINSTALL_OPTIONAL_system=true
+
+PRODUCT_PACKAGES += \
+    otapreopt_script
 
 # Audio
 BOARD_SUPPORTS_SOUND_TRIGGER_HAL := true
@@ -187,101 +197,3 @@ MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 TARGET_USES_C2D_COMPOSITION := true
 MAX_VIRTUAL_DISPLAY_DIMENSION := 4096
-TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
-
-# exfat
-TARGET_EXFAT_DRIVER := exfat
-
-# FM
-BOARD_HAVE_QCOM_FM := true
-BOARD_HAVE_FM_RADIO := true
-BOARD_DISABLE_FMRADIO_LIBJNI := true
-TARGET_QCOM_NO_FM_FIRMWARE := true
-
-#FSG
-BOARD_ROOT_EXTRA_FOLDERS := fsg
-
-# Keymaster
-TARGET_PROVIDES_KEYMASTER := true
-
-# HWUI
-HWUI_COMPILE_FOR_PERF := true
-
-# Lights
-TARGET_PROVIDES_LIBLIGHT := true
-
-# Manifest
-DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/manifest.xml
-DEVICE_MATRIX_FILE   := $(DEVICE_PATH)/configs/compatibility_matrix.xml
-
-# NFC
-NXP_CHIP_TYPE := PN551
-BOARD_NFC_HAL_SUFFIX := $(TARGET_BOARD_PLATFORM)
-
-# Partitions
-BOARD_FLASH_BLOCK_SIZE := 131072
-BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864        #    bootsingleslot * 1024 mmcblk0p37
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2684354560    #  systemsingleslot * 1024 mmcblk0p53
-#BOARD_USERDATAIMAGE_PARTITION_SIZE := 25614597120 # userdata * 1024 mmcblk0p54
-BOARD_ROOT_EXTRA_SYMLINKS := \
-    /mnt/vendor/persist:/persist
-
-# Peripheral manager
-TARGET_PER_MGR_ENABLED := true
-
-# Power
-TARGET_PROVIDES_POWERHAL := true
-
-# QC flags
-BOARD_USES_QCOM_HARDWARE := true
-BOARD_USES_QC_TIME_SERVICES := true
-
-# Recovery
-BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_USERIMAGES_USE_F2FS := true
-
-# RIL
-TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
-TARGET_USES_OLD_MNC_FORMAT := true
-
-# SELinux
-#include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
-
-#Soong
-PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
-
-# Thermal
-USE_DEVICE_SPECIFIC_THERMAL := true
-
-# Treble
-BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
-BOARD_VENDORIMAGE_PARTITION_SIZE := 536870912
-BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
-PRODUCT_FULL_TREBLE_OVERRIDE := true
-#PRODUCT_SHIPPING_API_LEVEL := 25
-PRODUCT_VENDOR_MOVE_ENABLED := true
-TARGET_COPY_OUT_VENDOR := vendor
-
-# Use mke2fs to create ext4 images
-TARGET_USES_MKE2FS := true
-
-# Wifi
-BOARD_HAS_QCOM_WLAN              := true
-BOARD_HAS_QCOM_WLAN_SDK          := true
-BOARD_WLAN_DEVICE                := qcwcn
-BOARD_HOSTAPD_DRIVER             := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_qcwcn
-BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
-WIFI_DRIVER_FW_PATH_AP           := "ap"
-WIFI_DRIVER_FW_PATH_STA          := "sta"
-WIFI_DRIVER_FW_PATH_P2P          := "p2p"
-WPA_SUPPLICANT_VERSION           := VER_0_8_X
-
-# Security patch level
-VENDOR_SECURITY_PATCH := 2018-06-05
-
-BOARD_ROOT_EXTRA_SYMLINKS := \
-	/vendor/firmware_mnt/image:firmware/image

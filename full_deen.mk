@@ -26,4 +26,4 @@ PRODUCT_DEVICE := deen
 PRODUCT_NAME := full_deen
 
 # for specific
-$(call inherit-product, vendor/motorola/deen/deen-vendor.mk)
+$(call inherit-product, vendor/motorola/deen_sprout/deen_sprout-vendor.mk)
