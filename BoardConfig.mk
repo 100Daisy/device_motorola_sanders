@@ -27,7 +27,9 @@ BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_PHONY_TARGETS := true
 
 # AIDs and CAPS
-TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
+TARGET_FS_CONFIG_GEN += \
+    $(DEVICE_PATH)/config.fs \
+    $(DEVICE_PATH)/mot_aids.fs
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8953
@@ -66,7 +68,7 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
 # Kernel
 #TARGET_COMPILE_WITH_MSM_KERNEL := true
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci firmware_class.path=/vendor/firmware_mnt/image loop.max_part=7
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive androidboot.veritymode=disabled
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive androidboot.veritymode=eio
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE := 2048
@@ -247,8 +249,7 @@ TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 TARGET_USES_OLD_MNC_FORMAT := true
 
 # SELinux
-#include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 #Soong
 PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)

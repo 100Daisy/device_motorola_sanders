@@ -79,18 +79,6 @@ AB_OTA_POSTINSTALL_CONFIG += \
 
 PRODUCT_PACKAGES += \
     otapreopt_script
-# Boot Control
-PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl.recovery \
-    bootctrl.msm8953.recovery
-
-PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service \
-    bootctrl.msm8953 \
-
-PRODUCT_PACKAGES_DEBUG += \
-    bootctl
 
 # Audio
 PRODUCT_PACKAGES += \
